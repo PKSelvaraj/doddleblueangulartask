@@ -1,0 +1,80 @@
+<div>
+    <div>
+        <h1 style="color: #475F7B;margin: 10px;"> Employee List </h1>
+    </div>
+
+    <div class="border" style="padding: 15px;">
+        <div class="list-top-align" fxLayoutAlign="space-between center">
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-icon matPrefix class="mat-search-icon">search</mat-icon>
+                <input matInput placeholder="Search" [(ngModel)]="searchKey" (keyup)="applyFilter()" autocomplete="off">
+                <button mat-icon-button matSuffix *ngIf="searchKey" (click)="clearSearch()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" matTooltip="Add" (click)="addEmployee()">Add Contact</button>
+        </div>
+
+        <div class="box-shadow">
+            <mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="empId">
+                    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="ID">{{row.empId}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Name">{{row.name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="mobileNo">
+                    <mat-header-cell *matHeaderCellDef>Mobile Number</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Mobile Number">{{row.mobileNo}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="mailId">
+                    <mat-header-cell *matHeaderCellDef>Mail</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Mail">{{row.mailId}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="companyName">
+                    <mat-header-cell *matHeaderCellDef>Company Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Company Name">{{row.companyName}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="edit">
+                    <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Edit">
+                        <button mat-icon-button (click)="editEmployee(row)" matTooltip="Edit">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Delete">
+                        <button mat-icon-button (click)="deleteEmployee(row)" matTooltip="Delete">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chat">
+                    <mat-header-cell *matHeaderCellDef>Chat</mat-header-cell>
+                    <mat-cell *matCellDef="let row" data-label="Chat">
+                        <button mat-icon-button (click)="moveToChatPage(row)" matTooltip="Chat">
+                            <mat-icon style="color: orange;"> chat</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[2, 5, 10, 25, 100]" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

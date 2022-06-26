@@ -1,0 +1,83 @@
+<div>
+    <h1 style="color: #475F7B;float: left;margin: 10px;">Chat</h1>
+    <button mat-raised-button color="warn" style="float: right;margin: 10px;" (click)="backToList()">Back to
+        List</button>
+</div>
+<div style="clear: both;"></div>
+
+<div class="border">
+    <div class="chat-body-content">
+        <div class="top-right-employee-content">
+            <div class="border right-box-content">
+                <div fxLayoutAlign="center">
+                    <div class="employee-badge"> {{rowData.title}} </div>
+                </div><br>
+
+                <div class="content-display">
+                    <span class="content-width">Name</span>
+                    <span class="content-weigth">: &nbsp;&nbsp; {{rowData.name}} </span><br><br>
+                </div>
+
+                <div class="content-display">
+                    <span class="content-width">Email</span>
+                    <span class="content-weigth">: &nbsp;&nbsp; {{rowData.mailId}} </span><br><br>
+                </div>
+
+                <div class="content-display">
+                    <span class="content-width">Mobile Number</span>
+                    <span class="content-weigth">: &nbsp;&nbsp; {{rowData.mobileNo}} </span><br><br>
+                </div>
+
+                <div class="content-display">
+                    <span class="content-width">Company Name</span>
+                    <span class="content-weigth">: &nbsp;&nbsp; {{rowData.companyName}} </span><br><br>
+                </div>
+                <div *ngIf="rowData.city != null" class="content-display">
+                    <span class="content-width">City</span>
+                    <span class="content-weigth">: &nbsp;&nbsp; {{rowData.city}} </span><br><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-left-employee-content">
+            <h3>Select below Employee to begin the Chat. </h3>
+            <div class="border">
+                <div style="display: flex;background-color: lightgray;margin: -1px;">
+                    <h3 class="header-initial-width"></h3>
+                    <h3 class="header-info-width">Employee Info</h3>
+                    <h3>Company</h3>
+                </div>
+                <br>
+                <div *ngFor="let emp of employeeDetails;let i = index"
+                    style="display: flex;margin-bottom: 20px;padding: 0px 10px;">
+                    <div class="header-initial-width">
+                        <mat-checkbox [checked]="emp.isSelected" color="primary"
+                            (change)="chooseReceiverEmployee(emp, $event.checked)"></mat-checkbox>
+                    </div>
+                    <div class="header-info-width">
+                        <span>{{emp.name}} </span>
+                        <br>
+                        <span>{{emp.mailId}} </span>
+                    </div>
+                    <div class="header-info-width">
+                        <span>{{emp.companyName}} </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div style="clear: both;"></div>
+    <div *ngIf="chatComponentsShow" class="chat-message-box">
+        <div class="chat-component-width">
+            <app-sender-chat></app-sender-chat>
+        </div>
+
+        <div class="chat-component-width">
+            <app-receiver-chat></app-receiver-chat>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div>
+    <h3 *ngIf="senderDetails != null">{{senderDetails.name}}</h3>
+
+    <div class="border sender-body-content">
+        <div style="height: 300px;overflow: hidden;">
+            <h3 *ngFor="let message of receiverChatMessage">{{message}} </h3>
+        </div>
+
+        <div class="chat-field">
+            <mat-form-field>
+                <mat-label>Message</mat-label>
+                <input matInput autocomplete="off" placeholder="Type and Enter to Send Message"
+                    [(ngModel)]="senderChatMessage" (keydown)="enterCallEvent($event)">
+            </mat-form-field>
+
+            <button class="mat-send-icon" (click)="sendMesage()" matTooltip="Send" mat-icon-button>
+                <mat-icon>send</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

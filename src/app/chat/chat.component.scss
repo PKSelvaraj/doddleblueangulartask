@@ -1,0 +1,104 @@
+.employee-badge {
+    height: 75px;
+    width: 75px;
+    line-height: 75px;
+    text-align: center;
+    border-radius: 50%;
+    border: solid 0px #93c8ff;
+    background-color: palevioletred !important;
+}
+
+.border {
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.top-left-employee-content {
+    width: 55%;
+    float: left;
+    margin: 20px;
+}
+
+.top-right-employee-content {
+    width: 38%;
+    float: right;
+    margin-top: 58px;
+}
+
+.right-box-content {
+    padding: 20px;
+    margin: 20px;
+    background-color: lightgray;
+}
+
+.header-initial-width {
+    width: 10%;
+}
+
+.header-info-width {
+    width: 40%;
+}
+
+.chat-message-box {
+    display: flex;
+}
+
+.chat-component-width {
+    width: 50%;
+    margin-left: 20px;
+}
+
+.content-display {
+    display: flex;
+}
+
+.content-weigth {
+    font-weight: bold;
+}
+
+.content-width {
+    width: 30%;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    .chat-body-content {
+        display: grid;
+    }
+
+    .top-left-employee-content {
+        width: auto;
+    }
+
+    .top-right-employee-content {
+        width: auto;
+        margin-top: 0px;
+    }
+
+    .chat-message-box {
+        display: grid;
+    }
+
+    .chat-component-width {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .header-initial-width {
+        width: 10%;
+    }
+    
+    .header-info-width {
+        width: 45%;
+    }
+
+    .content-width {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .content-width {
+        width: 40%;
+    }
+}

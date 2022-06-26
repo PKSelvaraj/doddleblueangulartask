@@ -1,0 +1,39 @@
+.chat-field .mat-form-field {
+    font-size: 12px;
+    width: 85%;
+}
+
+.border {
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.receiver-body-content {
+    width: 90%;
+    padding: 20px 20px 0px 20px;
+    border-radius: 7px;
+}
+
+.mat-send-icon {
+    margin-left: 7px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: deepskyblue;
+    color: #fff;
+    line-height: 0px;
+}
+
+@media only screen and (max-width: 550px) {
+    .receiver-body-content {
+        width: auto;
+    }
+
+    .chat-field .mat-form-field {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .chat-field .mat-form-field {
+        width: 70%;
+    }
+}
